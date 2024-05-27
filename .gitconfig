@@ -1,0 +1,26 @@
+[user]
+	name = <name> 
+	email = <email>
+
+[alias]
+	who = log --oneline --pretty=\"format:%Cred %h %Cblue%an %Cgreen%ar %Cred%s\"
+        all = rev-list --all --oneline --pretty=\"format:%Cgreen e%h %C(blue)%an %C(green)%ar %C(dim white)%s %C(yellow)%d %C(reset)\"
+        history = log --graph --pretty=format:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%ar)%Creset' --sparse --date=relative
+  cleanup = clean -dfn
+  cleanupf = clean -df
+  amend = commit --amend --author="name <email>" --no-edit
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+
