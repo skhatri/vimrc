@@ -19,3 +19,11 @@ zshrc
 ```
 cp .zshrc ~/.zshrc
 ```
+
+### tmux
+setup tmux env
+
+```
+cp tmuxsession.sh ~/dev/tools/utils/dp.sh
+```
+
